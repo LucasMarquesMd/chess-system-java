@@ -9,7 +9,7 @@ public class Board {
 	public Board(int rows, int column) {
 		this.rows = rows;
 		this.columns = column;
-		pieces = new Piece[rows][columns];
+		pieces = new Piece[rows][columns];//Matriz de peças - posição das peças.
 	}
 
 	public int getRows() {
@@ -36,4 +36,10 @@ public class Board {
 		return pieces[position.getRow()][position.getCollumn()];
 	}
 	
+	//Atribui uma peça a uma posição no tabuleiro
+	public void placePiece(Piece piece, Position position) {
+		//Matriz de peças
+		pieces[position.getRow()][position.getCollumn()] = piece;
+		piece.position = position;//Informa que a peça agora possui uma posição
+	}
 }

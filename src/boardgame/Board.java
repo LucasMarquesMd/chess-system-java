@@ -55,6 +55,22 @@ public class Board {
 		piece.position = position; // Informa que a peça não tem mais uma posição nula
 	}
 	
+	public Piece removePiece(Position position) {
+		if(!positionExists(position)) {
+			throw new BoardException("Position not on the board");
+		}
+		if (piece(position) == null) {
+			return null;
+		}
+		
+		Piece aux = piece(position);
+		aux.position = null; // A peça não tem mais posição no tabuleiro.
+		// A posição da peça na matriz fica nula.
+		pieces[position.getRow()][position.getColumn()] = null;
+		return aux;
+	}
+	
+	
 	// METODOS DE VERIFICAÇÃO
 	
 	//Classe auxiliar
